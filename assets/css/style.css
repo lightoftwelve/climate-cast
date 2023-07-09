@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=Merriweather:wght@300&display=swap');
+
+:root {
+    --black: #000;
+    --white: #fff;
+    --blue: #114174;
+}
+
+body {
+    font-size: 16px;
+    font-family: 'Merriweather', serif;
+}
+
+.dashboardTitle {
+    display: flex;
+    height: 75px;
+    margin: 0;
+    background: linear-gradient(to right, var(--blue), #00a8e8);
+    font-family: 'Lato', sans-serif;
+    align-items: center;
+    justify-content: right;
+}
+
+.dashboardTitle h1 {
+    display: flex;
+    color: var(--white);
+    font-size: 30px;
+}
+
+.search-column {
+    margin-left: 10px;
+    height: 100vh;
+    padding-top: 20px;
+    background-color: var(--blue);
+}
+
+.city-input {
+    font-size: 18px;
+}
+
+.form-control {
+    padding: 20px;
+}
+
+.form-control:focus {
+    color: var(--blue);
+    padding: 20px;
+    border-color: var(--blue);
+}
+
+.btn-primary {
+    background-color: var(--blue);
+    font-size: 10px;
+}
+
+.weather-container {
+    padding-top: 20px;
+}
+
+footer {
+    background-color: var(--blue);
+    color: var(--white);
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+}
+
+.footerTitle {
+    display: flex;
+}

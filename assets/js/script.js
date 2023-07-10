@@ -1,6 +1,5 @@
 // Get the current hour using Day.js
 var currentHour = dayjs().hour();
-
 // Define an array of image sources for each time period
 var imageSources = [
     "./assets/images/sunrise-by-ocean.jpg",
@@ -8,10 +7,8 @@ var imageSources = [
     "./assets/images/pink-sky-sunset-by-ocean.jpg",
     "./assets/images/midnight-sky-scene.jpg"
 ];
-
 // Get the image element
 var weatherImage = document.getElementById("weather-image");
-
 // Set the image source based on the current hour
 if (currentHour >= 6 && currentHour < 12) {
     weatherImage.src = imageSources[0];  // Morning image
@@ -108,20 +105,44 @@ function displayForecast(data) {
     });
 }
 
-// Adds the searched city to the search history.
+// Adds the searched city to the search history
 function addCityToHistory(city) {
-    var cityItem = $('<div>').addClass('list-group-item list-group-item-action d-flex justify-content-between align-items-center');
-    var cityName = $('<span>').text(city);
-    var deleteButton = $('<button>').addClass('btn btn-link delete-button').html('<span class="material-icons">delete</span>');
-
-    cityItem.append(cityName, deleteButton);
-    $('#search-history').append(cityItem);
-
-    deleteButton.on('click', function () {
-        cityItem.remove();
+    // Check if the city is already in the search history
+    var isCityInHistory = false;
+    $('#search-history > div > span').each(function () { // selects all span elements within elements that are direct children of the search-history id
+        if ($(this).text() === city) { // checks if the text in the loop matches the city variable
+            isCityInHistory = true;
+            return false;  // break the loop
+        }
     });
 
-    cityItem.on('click', function () {
-        getWeatherData(city);
-    });
+    // Only add the city if it's not in the search history
+    if (!isCityInHistory) {
+        var cityItem = $('<div>').addClass('list-group-item list-group-item-action d-flex justify-content-between align-items-center');
+        var cityName = $('<span>').text(city);
+        var deleteButton = $('<button>').addClass('btn btn-link delete-button').html('<span class="material-icons">delete</span>');
+
+        cityItem.append(cityName, deleteButton);
+        $('#search-history').append(cityItem);
+
+        // After the city has been added and all the event listeners are setup, store the city in localStorage
+        localStorage.setItem(city, city);
+
+        deleteButton.on('click', function () {
+            cityItem.remove();
+            localStorage.removeItem(city);
+        });
+
+        cityItem.on('click', function () {
+            getWeatherData(city);
+        });
+    }
 }
+
+// loads localStorage first
+$(document).ready(function () {
+    for (var i = 0; i < localStorage.length; i++) {
+        var city = localStorage.getItem(localStorage.key(i));
+        addCityToHistory(city);
+    }
+});

@@ -20,8 +20,8 @@ Climate Cast is a weather dashboard application that allows users to search for 
 - If you refresh the page or reopen the application, the search history will be preserved, allowing you to see your previous search history.
 
 ## Screenshots
-![climate cast dashboard with search feature](./assets/images/climate-cast-screenshot-1.png)
-![climate cast dashboard with current weather and 5-day forecast](./assets/images/climate-cast-screenshot-2.png)
+![climate cast dashboard with search feature](./assets/images/climate-cast-homepage.jpg)
+![climate cast dashboard with current weather and 5-day forecast](./assets/images/climate-cast-weather-recall.jpg)
 
 
 ## Technologies Used
@@ -31,12 +31,13 @@ Climate Cast is a weather dashboard application that allows users to search for 
 - DayJS
 - jQuery
 - Bootstrap
+- OpenWeatherMap API
 
 ## Live Demo
 Check out the live version of this project [here](https://lightoftwelve.github.io/climate-cast).
 
 ## Credits
-This project was independently developed by Victoria Alawi using jQuery, DayJS, and Bootstrap.
+This project was independently developed by Victoria Alawi using jQuery, DayJS, OpenWeatherMap API and Bootstrap.
 
 - Github: [@lightoftwelve](https://github.com/lightoftwelve)
 - LinkedIn: [@Victoria Alawi](https://www.linkedin.com/in/victoria-alawi-872984250/)
